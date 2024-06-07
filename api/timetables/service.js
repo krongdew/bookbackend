@@ -8,6 +8,12 @@ const getTimetableById = async (timetable_id) => {
   return await Timetable.findByPk(timetable_id);
 };
 
+const getTimetableByTeacherId = async (teacher_id) => {
+  return await Timetable.findAll({
+    where: { teacher_id: teacher_id }
+  });
+};
+
 const createTimetable = async (timetableData) => {
   return await Timetable.create(timetableData);
 };
@@ -43,4 +49,5 @@ module.exports = {
   createTimetable,
   updateTimetable,
   deleteTimetable,
+  getTimetableByTeacherId
 };

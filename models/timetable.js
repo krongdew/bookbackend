@@ -78,6 +78,10 @@ const Timetable = sequelize.define('timetables', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  isbooked:{
+    type: DataTypes.BOOLEAN,
+    defaultValue : false,
+  },
   teacher_id: {
     type: DataTypes.INTEGER,
     allowNull: false,

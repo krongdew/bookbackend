@@ -1,5 +1,6 @@
 const timetableService = require('./service');
 
+
 // GET /api/timetables
 const getAllTimetables = async (req, res) => {
   try {
@@ -17,6 +18,22 @@ const getTimetableById = async (req, res) => {
     const { id } = req.params;
     const timetable = await timetableService.getTimetableById(id);
     if (timetable) {
+      res.json(timetable);
+    } else {
+      res.status(404).json({ error: 'Timetable not found' });
+    }
+  } catch (err) {
+    console.error('Error fetching timetable', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+// GET /api/timetables/teacher/:teacher_id
+const getTimetableByTeacherId = async (req, res) => {
+  try {
+    const { teacher_id } = req.params;
+    const timetable = await timetableService.getTimetableByTeacherId(teacher_id);
+    if (timetable.length > 0) {
       res.json(timetable);
     } else {
       res.status(404).json({ error: 'Timetable not found' });
@@ -78,4 +95,5 @@ module.exports = {
   createTimetable,
   updateTimetable,
   deleteTimetable,
+  getTimetableByTeacherId
 };
