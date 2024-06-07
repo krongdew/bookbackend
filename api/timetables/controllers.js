@@ -1,6 +1,5 @@
 const timetableService = require('./service');
 
-
 // GET /api/timetables
 const getAllTimetables = async (req, res) => {
   try {
@@ -95,5 +94,6 @@ module.exports = {
   createTimetable,
   updateTimetable,
   deleteTimetable,
-  getTimetableByTeacherId
+  getTimetableByTeacherId,
+  
 };
