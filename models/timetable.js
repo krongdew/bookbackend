@@ -20,10 +20,6 @@
 //     console.log(err);
 //   });
 
-
-
-
-
 //   const Timetable = sequelize.define('timetables', {
 //     timetable_id: {
 //       type: DataTypes.INTEGER,
